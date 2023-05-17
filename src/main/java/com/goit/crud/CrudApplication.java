@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CrudApplication {
     public static void main(String[] args) throws IOException {
-        new LoggingConfiguration();
+        new LoggingConfiguration().setup();
         new FlywayConfigurations().setup().migrate();
         JDBCRepository<CustomerEntity> repository = new CustomerRepositoryIml(new Datasource());
         List<CustomerEntity> all = repository.findAll();

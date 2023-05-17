@@ -131,7 +131,7 @@
             <param-name>listings</param-name>
             <param-value>false</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>10</load-on-startup>
     </servlet>
     <servlet>
         <servlet-name>DemoServlet</servlet-name>
@@ -144,7 +144,12 @@
             <param-name>listings</param-name>
             <param-value>false</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>10</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>ApplicationInitServlet</servlet-name>
+        <servlet-class>com.goit.servlet.ApplicationInitServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
 
     <servlet-mapping>
@@ -155,6 +160,16 @@
         <servlet-name>DemoServlet</servlet-name>
         <url-pattern>/api/v1/demo</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.goit.servlet.filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
 
 
 
